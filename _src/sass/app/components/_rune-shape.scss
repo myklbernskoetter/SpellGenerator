@@ -1,0 +1,167 @@
+:root {
+  --background-color: skyblue;
+  --rune-width: 40rem;
+  --rune-height: 40rem;
+}
+
+.rune-wrapper {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2rem #000000;
+  padding: 9rem;
+
+  &:hover {
+      .rune-shape {
+        // animation: pulse 1s infinite;
+      }
+  }
+}
+
+.rune-shape {
+
+  width: var(--rune-width);
+  height: var(--rune-height);
+  transition: all 1.5s ease;
+  background-color: var(--background-color);
+  transition: all 1.5s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all .5s ease;
+    background: #fff;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+  }
+
+
+  &.cube {
+    -webkit-clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%);
+  }
+
+  &.cone {
+    -webkit-clip-path: polygon(50% 0%, 50% 0%, 100% 99%, 100% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%);
+    clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%);
+  }
+
+  &.web,
+  &.aura,
+  &.cloud,
+  &.circle,
+  &.sphere,
+  &.disk {
+    -webkit-clip-path: polygon(49% 0%, 81% 12%, 100% 48%, 88% 85%, 51% 98%, 19% 88%, 0% 44%, 12% 13%);
+    clip-path: polygon(49% 0%, 81% 12%, 100% 48%, 88% 85%, 51% 98%, 19% 88%, 0% 44%, 12% 13%);
+  }
+
+  &.missle,
+  &.bolt {
+    -webkit-clip-path: polygon(50% 0, 80% 34%, 60% 31%, 60% 100%, 40% 100%, 40% 30%, 20% 35%, 20% 35%);
+    clip-path: polygon(50% 0, 80% 34%, 60% 31%, 60% 100%, 40% 100%, 40% 30%, 20% 35%, 20% 35%);
+  }
+
+  &.doorway,
+  &.gate {
+    -webkit-clip-path: polygon(10% 100%, 10% 0, 85% 0, 85% 100%, 65% 100%, 68% 23%, 27% 23%, 29% 100%);
+    clip-path: polygon(10% 100%, 10% 0, 85% 0, 85% 100%, 65% 100%, 68% 23%, 27% 23%, 29% 100%);
+  }
+
+  &.touch {
+    -webkit-clip-path: polygon(8% 0%, 24% 0%, 25% 46%, 71% 48%, 71% 79%, 63% 100%, 9% 100%, 6% 47%);
+    clip-path: polygon(8% 0%, 24% 0%, 25% 46%, 71% 48%, 71% 79%, 63% 100%, 9% 100%, 6% 47%);
+  }
+
+  &.ward {
+    -webkit-clip-path: polygon(39% 0, 72% 0, 79% 33%, 63% 56%, 63% 100%, 51% 100%, 50% 56%, 33% 33%);
+    clip-path: polygon(39% 0, 72% 0, 79% 33%, 63% 56%, 63% 100%, 51% 100%, 50% 56%, 33% 33%);
+  }
+
+  &.ray,
+  &.lightning,
+  &.storm {
+    -webkit-clip-path: polygon(36% 31%, 63% 39%, 64% 0, 65% 0, 71% 50%, 48% 44%, 68% 100%, 59% 100%);
+    clip-path: polygon(36% 31%, 63% 39%, 64% 0, 65% 0, 71% 50%, 48% 44%, 68% 100%, 59% 100%);
+  }
+
+  &.sleep {
+    -webkit-clip-path: polygon(58% 18%, 22% 30%, 19% 18%, 73% 2%, 49% 89%, 100% 88%, 100% 100%, 34% 100%);
+    clip-path: polygon(58% 18%, 22% 30%, 19% 18%, 73% 2%, 49% 89%, 100% 88%, 100% 100%, 34% 100%);
+  }
+
+  &.wave {
+    -webkit-clip-path: polygon(60% 35%, 86% 90%, 100% 78%, 100% 100%, 70% 100%, 19% 100%, 24% 62%, 0 23%);
+    clip-path: polygon(60% 35%, 86% 90%, 100% 78%, 100% 100%, 70% 100%, 19% 100%, 24% 62%, 0 23%);
+  }
+
+  &.demon,
+  &.summoning {
+    -webkit-clip-path: polygon(36% 39%, 60% 39%, 70% 0, 84% 61%, 70% 100%, 33% 100%, 16% 62%, 23% 0);
+    clip-path: polygon(36% 39%, 60% 39%, 70% 0, 84% 61%, 70% 100%, 33% 100%, 16% 62%, 23% 0);
+  }
+
+  &.wall {
+    -webkit-clip-path: polygon(18% 0, 18% 13%, 81% 13%, 81% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(18% 0, 18% 13%, 81% 13%, 81% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+
+  &.blast {
+    -webkit-clip-path: polygon(49% 0, 54% 38%, 100% 48%, 55% 55%, 49% 100%, 42% 54%, 0 46%, 43% 39%);
+    clip-path: polygon(49% 0, 54% 38%, 100% 48%, 55% 55%, 49% 100%, 42% 54%, 0 46%, 43% 39%);
+  }
+
+  &.trap {
+    -webkit-clip-path: polygon(56% 0, 100% 20%, 100% 29%, 56% 8%, 59% 100%, 0 80%, 51% 90%, 48% 0);
+    clip-path: polygon(56% 0, 100% 20%, 100% 29%, 56% 8%, 59% 100%, 0 80%, 51% 90%, 48% 0);
+  }
+
+  &.claw,
+  &.strike {
+    -webkit-clip-path: polygon(11% 0, 100% 0, 15% 24%, 57% 48%, 14% 64%, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(11% 0, 100% 0, 15% 24%, 57% 48%, 14% 64%, 100% 100%, 0 100%, 0 0);
+  }
+
+  &.home,
+  &.shelter,
+  &.camp {
+    -webkit-clip-path: polygon(74% 21%, 50% 0, 25% 22%, 0 43%, 0 100%, 51% 100%, 100% 100%, 100% 43%);
+    clip-path: polygon(74% 21%, 50% 0, 25% 22%, 0 43%, 0 100%, 51% 100%, 100% 100%, 100% 43%);
+  }
+
+  // &.circle,
+  // &.sphere,
+  // &.disk {
+  //   width: 0;
+  //   height: 0;
+  //   background-color: none;
+  //
+  //   &::after {
+  //     width: var(--rune-width);
+  //     height: var(--rune-height);
+  //     transition: all 2s ease;
+  //     background: radial-gradient(circle at 300px 300px, #fff, #fff);
+  //   }
+  // }
+  //
+  // &.sphere,
+  // &.orb {
+  //   &::after {
+  //     background: radial-gradient(circle at 300px 300px, #fff, #000);
+  //   }
+  // }
+  //
+  // &.disk {
+  //   &::after {
+  //     --rune-height: 20rem;
+  //   }
+  // }
+}

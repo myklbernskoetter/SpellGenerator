@@ -1,0 +1,45 @@
+{
+  "name": "static-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "_src/js/main.js",
+  "config": {
+    "dev_url": "http://www.40digits.com",
+    "prod_url": "http://www.40digits.com",
+    "assets": "./assets/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run watch & browser-sync start --server --port 3000 --reloadDelay 500 --files \"./assets/**/*\"",
+    "build": "parallelshell \"npm run build:images\" \"npm run build:js\" \"npm run build:sass\" \"npm run build:sprites\" \"npm run build:symbols\"",
+    "watch": "parallelshell \"npm run watch:images\" \"npm run watch:js\" \"npm run watch:sass\" \"npm run watch:sprites\" \"npm run watch:symbols\"",
+    "build:images": "imagemin -p -o 4 ./_src/images ./assets/images",
+    "watch:images": "chokidar \"./_src/images/**/*\" -c \"npm run build:images\"",
+    "build:js": "cd ./_src/js/ && npm run build -- --output-path=../../assets/js",
+    "watch:js": "chokidar \"./_src/js/**/*\" -c \"npm run build:js\"",
+    "analyze:js": "cd ./_src/js/ && npm run analyze",
+    "build:sass": "cd ./_src/sass && npm run build -- --output_dir ../../assets/css",
+    "watch:sass": "chokidar \"./_src/sass/**/*.scss\" -c \"npm run build:sass\"",
+    "build:sprites": "cd ./_src/sprites && npm run build",
+    "watch:sprites": "cd ./_src/sprites && npm run watch",
+    "build:symbols": "svg-sprite --dest ./assets/images --symbol --symbol-dest \"symbols.svg\" --symbol-sprite . ./_src/symbols/**/*.svg",
+    "watch:symbols": "chokidar \"./_src/symbols/**/*.svg\" -c \"npm run build:symbols\""
+  },
+  "repository": "",
+  "author": "40Digits",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.12.5",
+    "chokidar-cli": "^1.2.0",
+    "debug": "~2.6.0",
+    "imagemin-cli": "^2.1.0",
+    "morgan": "~1.7.0",
+    "parallelshell": "^2.0.0",
+    "svg-sprite": "^1.2.19"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jsonfile": "^3.0.0"
+  }
+}

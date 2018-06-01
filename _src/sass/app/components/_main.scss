@@ -1,0 +1,60 @@
+// ================================
+// Main
+// ================================
+:body {
+  --background-color: skyblue;
+  --standard-padding: 2.5rem;
+}
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  box-shadow: inset 0 0 2rem .5rem #000000;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #fff;
+  padding: var(--standard-padding);
+}
+
+.main-content {
+  padding: 2.5rem 0;
+  text-align: center;
+  background: #000;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  box-shadow: inset 0 1.5rem .5rem -.5rem var(--background-color);
+  transition: box-shadow 1.5s;
+}
+
+.spell-name {
+  margin: 0 auto 2rem;
+  width: 90%;
+  padding: 1rem;
+  background: black;
+  font-weight: bold;
+  font-size: 3rem;
+  color: white;
+  text-transform: capitalize;
+}
+
+.button {
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: .5rem;
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: .1rem;
+  transition: background .25s;
+  color: #000;
+  background-color: #fff;
+  cursor: pointer;
+
+
+  &:hover {
+    background: darkgrey;
+  }
+}

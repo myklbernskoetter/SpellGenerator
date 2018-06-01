@@ -1,0 +1,24 @@
+  {
+    "name": "Sphere",
+    "class:" "circle"
+  },
+  {
+    "name": "Cube",
+    "class:" "square"
+  },
+  {
+    "name": "Web",
+    "class:" "web"
+  },
+  {
+    "name": "Missle",
+    "class:" "missle"
+  },
+  {
+    "name": "Cloud",
+    "class:" "circle"
+  },
+  {
+    "name": "cone",
+    "class:" "cone"
+  },

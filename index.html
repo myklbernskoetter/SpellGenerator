@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wild!</title>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script>
+    window.config = window.config || {};
+    window.dataLayer = [];
+  </script>
+
+  <script src="https://www.bugherd.com/sidebarv2.js?apikey={{ id }}" async defer></script>
+</head>
+
+<body>
+  <div class="rune-wrapper"><div id="rune" class="rune-shape cube"></div></div>
+  <a href="#main-content" class="visually-hidden focusable">Skip to content</a>
+
+  <script>
+    (function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/assets/images/symbols.svg');
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          var body = document.body;
+          var element = document.createElement('div');
+          var rawSVG = xhr.responseText.replace('<?xml version="1.0" encoding="utf-8"?>', '');
+          element.innerHTML = rawSVG;
+
+          var svg = element.firstChild;
+          svg.style.height = 0;
+          svg.style.width = 0;
+          svg.style.position = 'absolute';
+
+          var response = svg;
+          body.insertBefore(response, body.childNodes[0]);
+        }
+      };
+
+      xhr.send();
+    })();
+  </script>
+
+  <main id="main-content" class="main-content">
+    <header>
+      <h1>Wild Mage Spell Generator</h1>
+    </header>
+    <div id="generated-name" class="spell-name"><h2>Cast Your Spell!</h2></div>
+    <button type="button" class="js-build button">Build</button>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
